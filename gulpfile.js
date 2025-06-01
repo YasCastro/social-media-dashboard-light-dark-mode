@@ -12,8 +12,8 @@ const browsersync = require('browser-sync').create();
 //sass.compiler = require('dart-sass');
 
 // Sass Task
-function scssTask() {
-  return src('app/scss/style.scss', { sourcemaps: true })
+async function scssTask() {
+  return await src('app/scss/style.scss', { sourcemaps: true })
     .pipe(sass())
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(dest('dist', { sourcemaps: '.'}));
